@@ -489,6 +489,280 @@
             border-radius: 10px;
         }
 
+        .iphone-frame {
+            width: 300px;
+            height: 600px;
+            background-color: #111;
+            border-radius: 40px;
+            position: relative;
+            padding: 8px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .iphone-notch {
+            width: 150px;
+            height: 25px;
+            background-color: #111;
+            border-radius: 0 0 15px 15px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .iphone-screen {
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            border-radius: 32px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .iphone-home {
+            width: 40%;
+            height: 5px;
+            background-color: #333;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .app-ui {
+            width: 100%;
+            height: 100%;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            box-sizing: border-box;
+        }
+
+        .app-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+        }
+
+        .app-logo {
+            font-size: 24px;
+        }
+
+        .app-title {
+            font-weight: bold;
+            font-size: 18px;
+            color: var(--primary-dark);
+        }
+
+        .app-cart {
+            font-size: 20px;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: var(--light-gray);
+            padding: 8px 10px;
+            border-radius: 20px;
+            margin: 10px 0;
+        }
+
+        .search-icon {
+            margin-right: 10px;
+            color: var(--dark-gray);
+        }
+
+        .search-text {
+            color: var(--dark-gray);
+            font-size: 14px;
+        }
+
+        .categories {
+            display: flex;
+            overflow-x: auto;
+            padding: 5px 0;
+            margin-bottom: 10px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        .categories::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, Edge */
+        }
+
+        .category {
+            padding: 7px 14px;
+            background-color: var(--light-gray);
+            border-radius: 16px;
+            margin-right: 8px;
+            font-size: 12px;
+            white-space: nowrap;
+            font-weight: 500;
+        }
+
+        .category.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .banner {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 12px;
+            padding: 12px;
+            color: white;
+            margin-bottom: 12px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+        }
+
+        .banner-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .banner-subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .section-title {
+            font-weight: bold;
+            margin: 5px 0 10px 0;
+            font-size: 15px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 10px;
+            overflow-y: auto;
+            max-height: 205px;
+        }
+
+        .product-card {
+            background-color: var(--light-gray);
+            border-radius: 12px;
+            padding: 10px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background-color: var(--accent);
+            color: white;
+            font-size: 10px;
+            padding: 3px 6px;
+            border-radius: 10px;
+            z-index: 1;
+        }
+
+        .product-image {
+            height: 70px;
+            border-radius: 8px;
+            margin-bottom: 6px;
+            background-color: #e0e0e0;
+        }
+
+        .fruit-1 {
+            background-color: #f8e7d5;
+        }
+
+        .fruit-2 {
+            background-color: #fcf3cf;
+        }
+
+        .veg-1 {
+            background-color: #d6ecd2;
+        }
+
+        .veg-2 {
+            background-color: #e8f8e8;
+        }
+
+        .product-name {
+            font-weight: 500;
+            font-size: 13px;
+        }
+
+        .product-price {
+            font-weight: bold;
+            color: var(--primary-dark);
+            font-size: 14px;
+            margin: 2px 0;
+        }
+
+        .price-per {
+            font-weight: normal;
+            font-size: 11px;
+            color: var(--dark-gray);
+        }
+
+        .add-button {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-top: auto;
+        }
+
+        .delivery-info {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: var(--primary-light);
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+
+        .delivery-icon {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .delivery-estimate {
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .delivery-address {
+            font-size: 12px;
+            color: var(--dark-gray);
+        }
+
+        .app-nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 10px;
+            background-color: white;
+            margin-top: auto;
+            border-top: 1px solid #eee;
+        }
+
+        .nav-item {
+            font-size: 18px;
+            padding: 5px;
+            color: var(--dark-gray);
+        }
+
+        .nav-item.active {
+            color: var(--primary);
+        }
+
         .impact-icon {
             margin-right: 10px;
             font-size: 20px;
@@ -745,11 +1019,11 @@
             }
         }
 
-        
-            /* Base: hide close button by default */
-            .close-menu {
-                display: none;
-            }
+
+        /* Base: hide close button by default */
+        .close-menu {
+            display: none;
+        }
 
         @media (max-width: 768px) {
             header {
@@ -893,7 +1167,82 @@
             </div>
         </div>
         <div class="hero-image">
-            <img src="/api/placeholder/600/400" alt="Fresh produce basket with vegetables and fruits" />
+            <div class="iphone-frame">
+                <div class="iphone-notch"></div>
+                <div class="iphone-screen">
+                    <div class="app-ui">
+                        <div class="app-header">
+                            <div class="app-logo">🥬</div>
+                            <div class="app-title">Fresh Delivery</div>
+                            <div class="app-cart">🛒</div>
+                        </div>
+                        <div class="search-bar">
+                            <div class="search-icon">🔍</div>
+                            <div class="search-text">Search fresh produce...</div>
+                        </div>
+                        <div class="categories">
+                            <div class="category active">All</div>
+                            <div class="category">Fruits</div>
+                            <div class="category">Veggies</div>
+                            <div class="category">Organic</div>
+                            <div class="category">Seasonal</div>
+                        </div>
+                        <div class="banner">
+                            <div class="banner-text">
+                                <div class="banner-title">25% OFF</div>
+                                <div class="banner-subtitle">On your first order</div>
+                            </div>
+                        </div>
+                        <div class="section-title">Popular Items</div>
+                        <div class="products-grid">
+                            <div class="product-card">
+                                <div class="product-badge">Best Seller</div>
+                                <div class="product-image fruit-1"></div>
+                                <div class="product-name">Organic Apples</div>
+                                <div class="product-price">$3.99 <span class="price-per">/ lb</span></div>
+                                <div class="add-button">Add</div>
+                            </div>
+                            <div class="product-card">
+                                <div class="product-image fruit-2"></div>
+                                <div class="product-name">Fresh Bananas</div>
+                                <div class="product-price">$1.49 <span class="price-per">/ lb</span></div>
+                                <div class="add-button">Add</div>
+                            </div>
+                            <div class="product-card">
+                                <div class="product-image veg-1"></div>
+                                <div class="product-name">Broccoli</div>
+                                <div class="product-price">$2.29 <span class="price-per">/ head</span></div>
+                                <div class="add-button">Add</div>
+                            </div>
+                            <div class="product-card">
+                                <div class="product-image veg-2"></div>
+                                <div class="product-name">Spinach</div>
+                                <div class="product-price">$2.49 <span class="price-per">/ bunch</span></div>
+                                <div class="add-button">Add</div>
+                            </div>
+                        </div>
+                        <div class="delivery-info">
+                            <div class="delivery-icon">🚚</div>
+                            <div class="delivery-text">
+                                <div class="delivery-estimate">Delivery in 30-45 min</div>
+                                <div class="delivery-address">To: 123 Home St</div>
+                            </div>
+                        </div>
+                        <div class="app-nav">
+                            <div class="nav-item active">🏠</div>
+                            <div class="nav-item">🔍</div>
+                            <div class="nav-item">🛒</div>
+                            <div class="nav-item">💖</div>
+                            <div class="nav-item">👤</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="iphone-home"></div>
+            </div>
+
+            <!-- <img src="https://github.com/NiteshWarik23/harvest_connect/blob/main/images/veggies.jpg"
+                alt="Fresh produce basket with vegetables and fruits" width="400">
+            <img src="/api/placeholder/600/400" alt="Fresh produce basket with vegetables and fruits" />-->
         </div>
     </section>
 
@@ -1192,7 +1541,8 @@
             farmers.</p>
 
         <div class="feedback-form">
-            <form>
+            <form action="https://formsubmit.co/flutterappdev23@email.com" method="POST">
+                <input type="hidden" name="_captcha" value="false">
                 <div class="form-group">
                     <label for="interest-level">How likely are you to use our service?</label>
                     <select id="interest-level" name="interest-level">
