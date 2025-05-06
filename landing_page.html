@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harvest Connect - Fresh Produce, Fresh Impact</title>
+    <style>
+        :root {
+            --primary: #4CAF50;
+            --primary-dark: #388E3C;
+            --accent: #FF9800;
+            --light: #F1F8E9;
+            --dark: #2E7D32;
+            --text: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--light);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+        }
+
+        .logo-icon {
+            color: var(--primary);
+            font-size: 2rem;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-dark);
+        }
+
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, #F1F8E9 0%, #DCEDC8 100%);
+            min-height: 80vh;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding-right: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .survey-button {
+            background-color: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .survey-button:hover {
+            background-color: var(--light);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .highlight {
+            color: var(--primary-dark);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-dark);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .features {
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .impact-section {
+            background-color: var(--light);
+            padding: 5rem 5%;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .impact-content {
+            flex: 1;
+        }
+
+        .impact-visual {
+            flex: 1;
+            position: relative;
+            min-height: 400px;
+        }
+
+        .impact-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--primary);
+        }
+
+        .impact-stats {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            flex: 1;
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .rewards-section {
+            padding: 5rem 5%;
+            background-color: white;
+        }
+
+        .rewards-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .reward-card {
+            background-color: var(--light);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .reward-card:hover {
+            transform: scale(1.05);
+        }
+
+        .points-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .points-amount {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .why-section {
+            padding: 5rem 5%;
+            background-color: white;
+            text-align: center;
+        }
+
+        .problem-solution {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+            text-align: left;
+        }
+
+        .problem-card,
+        .solution-card {
+            flex: 1;
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .problem-card {
+            border-left: 5px solid #FF5252;
+        }
+
+        .solution-card {
+            border-left: 5px solid var(--primary);
+        }
+
+        .problem-card h3,
+        .solution-card h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .problem-card h3 {
+            color: #FF5252;
+        }
+
+        .solution-card h3 {
+            color: var(--primary);
+        }
+
+        .problem-card ul,
+        .solution-card ul {
+            padding-left: 1.5rem;
+        }
+
+        .problem-card li,
+        .solution-card li {
+            margin-bottom: 1rem;
+        }
+
+        .app-preview-section {
+            padding: 5rem 5%;
+            background-color: var(--light);
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .app-content {
+            flex: 1;
+        }
+
+        .app-mockup {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .app-badges {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .coming-soon-badge {
+            background-color: var(--accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .iphone-frame {
+            width: 300px;
+            height: 600px;
+            background-color: #111;
+            border-radius: 40px;
+            position: relative;
+            padding: 8px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .iphone-notch {
+            width: 150px;
+            height: 25px;
+            background-color: #111;
+            border-radius: 0 0 15px 15px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .iphone-screen {
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            border-radius: 32px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .iphone-home {
+            width: 40%;
+            height: 5px;
+            background-color: #333;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .app-ui {
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .app-header {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 5px;
+        }
+
+        .app-logo {
+            font-size: 24px;
+        }
+
+        .app-cart {
+            font-size: 20px;
+        }
+
+        .app-products {
+            flex: 1;
+            padding: 10px 0;
+            overflow-y: auto;
+        }
+
+        .app-product {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .product-image {
+            width: 50px;
+            height: 50px;
+            background-color: #ddd;
+            border-radius: 8px;
+            margin-right: 10px;
+        }
+
+        .product-info {
+            flex: 1;
+        }
+
+        .product-name {
+            font-weight: bold;
+        }
+
+        .product-price {
+            color: var(--primary);
+        }
+
+        .product-add {
+            width: 25px;
+            height: 25px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .app-impact {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: var(--light);
+            border-radius: 10px;
+        }
+
+        .impact-icon {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        .impact-text {
+            font-weight: bold;
+            color: var(--primary-dark);
+            font-size: 14px;
+        }
+
+        .app-nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px 0;
+            border-top: 1px solid #eee;
+        }
+
+        .nav-item {
+            font-size: 18px;
+            opacity: 0.6;
+        }
+
+        .nav-item.active {
+            opacity: 1;
+            color: var(--primary);
+        }
+
+        .faq-section {
+            padding: 5rem 5%;
+            background-color: white;
+            text-align: center;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            text-align: left;
+        }
+
+        .faq-item {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-item h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .feedback-section {
+            background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .feedback-form {
+            max-width: 600px;
+            margin: 3rem auto 0;
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .submit-button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1rem;
+        }
+
+        .submit-button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .farmer-impact-tracker {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            max-width: 400px;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+        }
+
+        .tracker-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .tracker-content {
+            padding: 1.5rem;
+        }
+
+        .tracker-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .tracker-icon {
+            background-color: var(--light);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background-color: #eee;
+            border-radius: 5px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: var(--primary);
+            width: 75%;
+        }
+
+        @media (max-width: 1200px) {
+
+            .problem-solution,
+            .feature-grid,
+            .rewards-cards {
+                gap: 1.5rem;
+            }
+
+            .impact-stats {
+                flex-wrap: wrap;
+            }
+
+            .stat {
+                flex-basis: calc(50% - 0.75rem);
+            }
+        }
+
+        @media (max-width: 900px) {
+
+            .hero,
+            .impact-section,
+            .app-preview-section,
+            .problem-solution {
+                flex-direction: column;
+            }
+
+            .hero-content,
+            .impact-content,
+            .app-content {
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .impact-visual {
+                min-height: 500px;
+                width: 100%;
+            }
+
+            .farmer-impact-tracker {
+                position: relative;
+                top: 0;
+                right: 0;
+                transform: none;
+                margin: 0 auto;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .hero-buttons button,
+            .hero-buttons a {
+                width: 100%;
+            }
+
+            .problem-solution {
+                flex-direction: column;
+            }
+        }
+
+        
+            /* Base: hide close button by default */
+            .close-menu {
+                display: none;
+            }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 3%;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 70%;
+                height: 100vh;
+                background-color: white;
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transition: left 0.3s ease;
+                z-index: 101;
+                box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+
+            /* .close-menu {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                cursor: pointer;
+            } */
+
+            .close-menu {
+                display: inline-block;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                cursor: pointer;
+                margin-bottom: 1rem;
+            }
+
+            #menu {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .feature-grid,
+            .rewards-cards {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            .app-mockup {
+                transform: scale(0.9);
+            }
+
+            header .cta-button {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .impact-stats {
+                flex-direction: column;
+            }
+
+            .stat {
+                flex-basis: 100%;
+            }
+
+            .hero {
+                padding: 3rem 5%;
+            }
+
+            section {
+                padding: 3rem 5% !important;
+            }
+
+            .app-mockup {
+                transform: scale(0.8);
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .logo-icon {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <span class="logo-icon">🌱</span>
+            Harvest Connect
+        </div>
+        <button class="mobile-menu-toggle">☰</button>
+        <nav>
+            <ul id="menu">
+                <button class="close-menu">✕</button>
+                <li><a href="#why">Why Us</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#impact">Your Impact</a></li>
+                <li><a href="#rewards">Rewards</a></li>
+                <li><a href="#faq">FAQs</a></li>
+                <li><a href="#feedback">Feedback</a></li>
+            </ul>
+        </nav>
+        <button class="cta-button">Download App</button>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Fresh Produce with <span class="highlight">Real Impact</span></h1>
+            <p>Get farm-fresh fruits and vegetables delivered to your door while making a real difference in farmers'
+                lives. Every purchase you make helps support local farmers and earns you reward points for future
+                shopping.</p>
+            <div class="hero-buttons">
+                <button class="cta-button">Start Shopping</button>
+                <a href="https://forms.gle/sx3wLMEzNZxoyhMx5" target="https://forms.gle/sx3wLMEzNZxoyhMx5"
+                    class="survey-button">Take Survey</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="/api/placeholder/600/400" alt="Fresh produce basket with vegetables and fruits" />
+        </div>
+    </section>
+
+    <section class="why-section" id="why">
+        <h2>Why Choose Harvest Connect?</h2>
+        <div class="problem-solution">
+            <div class="problem-card">
+                <h3>The Problem</h3>
+                <ul>
+                    <li><strong>Unfair Compensation:</strong> Farmers often receive only a fraction of what consumers
+                        pay</li>
+                    <li><strong>Quality Compromise:</strong> Multiple middlemen result in less fresh produce and higher
+                        prices</li>
+                    <li><strong>Lack of Transparency:</strong> Consumers have no visibility into how their money
+                        supports (or doesn't support) producers</li>
+                    <li><strong>Environmental Impact:</strong> Traditional supply chains create excessive carbon
+                        footprints and food waste</li>
+                </ul>
+            </div>
+            <div class="solution-card">
+                <h3>Our Solution</h3>
+                <ul>
+                    <li><strong>Transparent Supply Chain:</strong> Currently sourcing from trusted vendors while
+                        building direct farmer relationships</li>
+                    <li><strong>Fair Contribution:</strong> 10% of every purchase supports our Farmer Support Fund</li>
+                    <li><strong>Traceable Impact:</strong> See exactly how your purchases make a difference</li>
+                    <li><strong>Reward-Based Loyalty:</strong> Earn points with every purchase that translate to real
+                        value</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="how-it-works">
+        <h2>How Harvest Connect Works</h2>
+        <p>We're reimagining the farm-to-table experience with technology that connects you directly with fresh produce
+            while supporting the people who grow it.</p>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="icon">🛒</div>
+                <h3>Shop Fresh</h3>
+                <p>Browse our selection of seasonal fruits and vegetables, all sourced from verified local farms with
+                    sustainable practices.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon">🚚</div>
+                <h3>Fast Delivery</h3>
+                <p>Get your farm-fresh produce delivered to your doorstep within 24 hours of harvest, ensuring maximum
+                    freshness.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon">👩‍🌾</div>
+                <h3>Support Farmers</h3>
+                <p><strong>10% of every purchase</strong> goes directly to supporting local farmers through fair pricing
+                    and agricultural development programs.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon">🏆</div>
+                <h3>Earn Rewards</h3>
+                <p>Collect points with every purchase and redeem them for free products, discounts, and exclusive
+                    seasonal offers.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="impact-section" id="impact">
+        <div class="impact-content">
+            <h2>See Your Impact Grow</h2>
+            <p>With Harvest Connect, you're not just buying groceries—you're helping create a more sustainable
+                agricultural future.</p>
+
+            <div class="impact-card">
+                <h3>How Your Purchase Makes a Difference</h3>
+                <p>For every order you place, we automatically contribute 10% of the order value to our Farmer Support
+                    Fund. While we currently source from trusted vendors and markets, this fund is already making an
+                    impact by providing:</p>
+                <ul>
+                    <li>Fair compensation above market rates for farmers joining our network</li>
+                    <li>Investment in sustainable farming equipment and practices</li>
+                    <li>Training programs for modern agricultural practices</li>
+                    <li>Interest-free loans for farm expansion and direct partnerships</li>
+                </ul>
+                <p><small>We're working toward direct farmer relationships, but making an impact from day one!</small>
+                </p>
+            </div>
+
+            <div class="impact-stats">
+                <div class="stat">
+                    <div class="stat-number">120+</div>
+                    <div>Local Farmers Supported</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">$250K</div>
+                    <div>Contributed to Farmer Support</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">15</div>
+                    <div>Community Gardens Funded</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="impact-visual">
+            <div class="farmer-impact-tracker">
+                <div class="tracker-header">
+                    <h3>Your Farmer Impact Tracker</h3>
+                </div>
+                <div class="tracker-content">
+                    <p>See how your purchases have made a difference:</p>
+
+                    <div class="tracker-item">
+                        <div class="tracker-icon">🥕</div>
+                        <div>
+                            <strong>$27.50</strong> contributed to farmers this month
+                        </div>
+                    </div>
+
+                    <div class="tracker-item">
+                        <div class="tracker-icon">👨‍🌾</div>
+                        <div>
+                            <strong>3</strong> farmers supported through your purchases
+                        </div>
+                    </div>
+
+                    <div class="tracker-item">
+                        <div class="tracker-icon">🌱</div>
+                        <div>
+                            <strong>2</strong> sustainable farming projects funded
+                        </div>
+                    </div>
+
+                    <p><strong>Progress to next impact milestone:</strong></p>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <p class="progress-text">$75 more to fund a water conservation system</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="rewards-section" id="rewards">
+        <h2>Rewards That Give Back</h2>
+        <p>The more you shop, the more you earn. Use your points for free products or contribute them to farmer support
+            programs.</p>
+
+        <div class="rewards-cards">
+            <div class="reward-card">
+                <div class="points-icon">✨</div>
+                <div class="points-amount">100 pts</div>
+                <h3>Free Seasonal Item</h3>
+                <p>Redeem 100 points for a complimentary seasonal fruit or vegetable on your next order.</p>
+            </div>
+
+            <div class="reward-card">
+                <div class="points-icon">✨</div>
+                <div class="points-amount">250 pts</div>
+                <h3>$10 Discount</h3>
+                <p>Apply a $10 discount to any order over $30 with 250 reward points.</p>
+            </div>
+
+            <div class="reward-card">
+                <div class="points-icon">✨</div>
+                <div class="points-amount">500 pts</div>
+                <h3>Premium Produce Box</h3>
+                <p>Get our curated box of premium seasonal produce delivered to your door.</p>
+            </div>
+
+            <div class="reward-card">
+                <div class="points-icon">✨</div>
+                <div class="points-amount">1000 pts</div>
+                <h3>Fund a Farmer</h3>
+                <p>Convert your points into a direct contribution to a farmer's equipment fund.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="app-preview-section">
+        <div class="app-content">
+            <h2>Shop Anywhere, Anytime</h2>
+            <p>Our mobile app makes ordering fresh produce easier than ever. Browse products, track your impact, and
+                manage rewards all in one place.</p>
+            <div class="app-badges">
+                <span class="coming-soon-badge">Coming Soon!</span>
+                <button class="cta-button">Join Waitlist</button>
+            </div>
+        </div>
+        <div class="app-mockup">
+            <div class="iphone-frame">
+                <div class="iphone-notch"></div>
+                <div class="iphone-screen">
+                    <div class="app-ui">
+                        <div class="app-header">
+                            <div class="app-logo">🌱</div>
+                            <div class="app-cart">🛒</div>
+                        </div>
+                        <div class="app-products">
+                            <div class="app-product">
+                                <div class="product-image"></div>
+                                <div class="product-info">
+                                    <div class="product-name">Organic Apples</div>
+                                    <div class="product-price">$3.99</div>
+                                </div>
+                                <div class="product-add">+</div>
+                            </div>
+                            <div class="app-product">
+                                <div class="product-image"></div>
+                                <div class="product-info">
+                                    <div class="product-name">Fresh Spinach</div>
+                                    <div class="product-price">$2.49</div>
+                                </div>
+                                <div class="product-add">+</div>
+                            </div>
+                            <div class="app-impact">
+                                <div class="impact-icon">👨‍🌾</div>
+                                <div class="impact-text">Your impact: $12.40</div>
+                            </div>
+                        </div>
+                        <div class="app-nav">
+                            <div class="nav-item active">🏠</div>
+                            <div class="nav-item">🔍</div>
+                            <div class="nav-item">👨‍🌾</div>
+                            <div class="nav-item">👤</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="iphone-home"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h3>How does my purchase actually help farmers?</h3>
+                <p>10% of every purchase goes to our Farmer Support Fund, which directly supports farming communities
+                    through fair compensation, equipment investments, training programs, and interest-free loans. We're
+                    transparent about exactly where your money goes with our impact tracking system.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Do you source directly from farmers?</h3>
+                <p>Currently, we source our produce from trusted vendors and markets while building relationships with
+                    farmers. Our goal is to transition to a direct farm-to-consumer model as we grow. Even now, a
+                    portion of every purchase goes to supporting farmers through our Farmer Support Fund.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How does the rewards program work?</h3>
+                <p>You earn 1 point for every $1 spent. These points can be redeemed for free products, discounts on
+                    future orders, or even direct contributions to farming projects. Points never expire as long as your
+                    account remains active.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How fresh is your produce?</h3>
+                <p>We pride ourselves on freshness! Our logistics system ensures that produce arrives at your doorstep
+                    within 48 hours of being received from our suppliers. This is significantly faster than traditional
+                    grocery supply chains.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>What areas do you deliver to?</h3>
+                <p>We currently deliver to major metropolitan areas with plans to expand. Enter your zip code on our app
+                    to check if we service your area. We're constantly growing our delivery network!</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Is there a minimum order amount?</h3>
+                <p>Yes, our minimum order is $20, which helps us ensure efficient delivery routes and maximize our
+                    environmental efficiency while maintaining fair compensation for our delivery partners.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How can I track my impact?</h3>
+                <p>Your personal impact dashboard in our app shows exactly how much you've contributed, which farmers
+                    have benefited, and what projects your money is supporting. We believe in complete transparency.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Can I choose which farmers to support?</h3>
+                <p>While our current system allocates support automatically, we're developing features that will allow
+                    you to direct your contributions to specific farming communities or projects in the future.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="feedback-section" id="feedback">
+        <h2>Would You Shop With Us?</h2>
+        <p>We're building a community of conscious consumers who care about quality produce and supporting local
+            farmers.</p>
+
+        <div class="feedback-form">
+            <form>
+                <div class="form-group">
+                    <label for="interest-level">How likely are you to use our service?</label>
+                    <select id="interest-level" name="interest-level">
+                        <option value="very-likely">Very Likely</option>
+                        <option value="somewhat-likely">Somewhat Likely</option>
+                        <option value="neutral">Neutral</option>
+                        <option value="unlikely">Unlikely</option>
+                        <option value="very-unlikely">Very Unlikely</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="feature-interest">Which feature appeals to you most?</label>
+                    <select id="feature-interest" name="feature-interest">
+                        <option value="farmer-support">Supporting Local Farmers</option>
+                        <option value="rewards-program">Rewards Program</option>
+                        <option value="fresh-produce">Farm-Fresh Produce</option>
+                        <option value="fast-delivery">24-Hour Delivery</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email (optional for updates)</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="feedback">Any feedback or suggestions?</label>
+                    <textarea id="feedback" name="feedback" rows="4"
+                        placeholder="We'd love to hear your thoughts..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-button">Submit Feedback</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo">
+            <span class="logo-icon">🌱</span>
+            Harvest Connect
+        </div>
+
+        <div class="footer-links">
+            <a href="#">About Us</a>
+            <a href="#">Our Farmers</a>
+            <a href="#">Impact Reports</a>
+            <a href="#">Join Our Team</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <p>© 2025 Harvest Connect. All rights reserved.</p>
+        <p>Making fresh produce and farmer support accessible to everyone.</p>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const closeMenuBtn = document.querySelector('.close-menu');
+        const menu = document.getElementById('menu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            menu.classList.add('active');
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+            menu.classList.remove('active');
+        });
+
+        // Close menu when clicking on a link (mobile)
+        const menuLinks = menu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
