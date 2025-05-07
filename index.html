@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harvest Connect - Fresh Produce, Fresh Impact</title>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
     <style>
         :root {
             --primary: #4CAF50;
@@ -1137,6 +1138,12 @@
                 font-size: 1.5rem;
             }
         }
+
+        #message {
+            margin-top: 10px;
+            font-weight: bold;
+            color: black;
+        }
     </style>
 </head>
 
@@ -1547,9 +1554,13 @@
         <p>We're building a community of conscious consumers who care about quality produce and supporting local
             farmers.</p>
 
-        <div class="feedback-form">
-            <form action="https://formsubmit.co/flutterappdev23@gmail.com" method="POST">
-                <input type="hidden" name="_captcha" value="false">
+        <!--<div class="hero-buttons">-->
+        <!--<button type="submit" class="submit-button">Submit Feedback</button>-->
+        <a href="https://forms.gle/sYiF3bR7bMVU1rqq5" target="https://forms.gle/sYiF3bR7bMVU1rqq5"
+            class="survey-button">Submit Feedback</a>
+        <!--</div>-->
+        <!--<div class="feedback-form">
+            <form id="feedbackForm">
                 <div class="form-group">
                     <label for="interest-level">How likely are you to use our service?</label>
                     <select id="interest-level" name="interest-level">
@@ -1570,10 +1581,13 @@
                         <option value="fast-delivery">24-Hour Delivery</option>
                     </select>
                 </div>
-
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
                 <div class="form-group">
                     <label for="email">Email (optional for updates)</label>
-                    <input type="email" id="email" name="email" placeholder="your@email.com">
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
                 </div>
 
                 <div class="form-group">
@@ -1583,8 +1597,10 @@
                 </div>
 
                 <button type="submit" class="submit-button">Submit Feedback</button>
+                <div id="message"></div>
             </form>
-        </div>
+           
+        </div>-->
     </section>
 
     <footer>
@@ -1645,6 +1661,46 @@
             });
         });
     </script>
+    <!-- <script>
+        $(document).ready(function () {
+            $("#feedbackForm").submit(function (event) {
+                event.preventDefault();
+                var formData = {
+                    interestLevel: $("#interest-level").val(),
+                    featureInterest: $("#feature-interest").val(),
+                    name: $("#name").val(),
+                    email: $("#email").val(),
+                    feedback: $("#feedback").val()
+                };
+
+                $.ajax({
+                    type: "POST",
+                    url: "", // Replace with your Web App URL
+                    data: JSON.stringify(formData),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        if (response.result === "success") {
+                            $("#message").html("Feedback submitted successfully!");
+                            $("#feedbackForm")[0].reset(); // Clear the form
+                        } else if (response.result === "error") {
+                            // Redirect to Google Form
+                            window.location.href = response.formUrl;
+                        }
+                        else {
+                            var errorMessage = response.error || "An unknown error occurred";
+                            $("#message").html("Error 1: " + errorMessage);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        var errorMessage = error || "An unknown error occurred";
+                        window.location.href = response.formUrl;
+                        $("#message").html("Error 2: " + errorMessage);
+                    }
+                });
+            });
+        });
+    </script>-->
 </body>
 
 </html>
